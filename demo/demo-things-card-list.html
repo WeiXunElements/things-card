@@ -1,0 +1,126 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2016 The Things Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at https://github.com/ThingsElements/things-card-list/LICENSE.txt
+The complete set of authors may be found at https://github.com/ThingsElements/things-card-list/AUTHORS.txt
+The complete set of contributors may be found at https://github.com/ThingsElements/things-card-list/CONTRIBUTORS.txt
+Code distributed by Hatiolab as part of the things project is also
+subject to an additional IP rights grant found at https://github.com/ThingsElements/things-card-list/PATENTS.txt
+-->
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <title>things-card-list demo</title>
+  <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+  
+  <link rel="import" href="../../polymer/polymer.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../paper-toast/paper-toast.html">
+
+  <link rel="import" href="../things-card-list.html">
+  <link rel="import" href="../things-img-card.html">
+
+  <style is="custom-style">
+    .output {
+      margin-top: 20px;
+      word-wrap: break-word;
+      @apply(--paper-font-common-code);
+    }
+
+    form > paper-button {
+      width: 45%;
+      margin-top: 20px;
+    }
+    
+    form > paper-button:not([disabled]) {
+      background: var(--paper-light-blue-500);
+      color: white;
+    }
+    
+    button {
+      margin-top: 20px;
+    }
+    
+    paper-spinner {
+      width: 14px;
+      height: 14px;
+      margin-right: 20px;
+    }
+    
+    paper-dropdown-menu {
+      display: block;
+    }
+    
+    demo-snippet {
+      --demo-snippet-code: {
+        max-height: 300px;
+      };
+    }
+  </style>
+
+</head>
+
+<body unresolved>
+  <demo-snippet class="centered-demo">
+    <template>
+      <sample-card-list></sample-card-list>
+
+      <dom-module id="sample-card-list">
+        <template>
+          <things-card-list 
+            items="[[items]]"
+            selected="selectedItem">
+          </things-card-list>            
+        </template>
+
+        <script>
+          Polymer({
+            is: 'sample-card-list',
+
+            properties: {
+              items: {
+                type: Array,
+                value: [{
+                  "id": "1",
+                  "mimetype": "png",
+                  "description": "demo1 desc",
+                  "resource_id": "demo1 rsc_id",
+                  "resource_type": "demo1 rsc_type",
+                  "resource_tag": "demo1 rsc_tag",
+                  "update_by": "demo1 updater",
+                  "updated_at": "2016-04-25 17:24:00",
+                  "name": "demo1 name"                  
+                }, {
+                  "id": "2",
+                  "mimetype": "png",
+                  "description": "demo2 desc",
+                  "resource_id": "demo2 rsc_id",
+                  "resource_type": "demo2 rsc_type",
+                  "resource_tag": "demo2 rsc_tag",
+                  "update_by": "demo2 updater",
+                  "updated_at": "2016-04-25 17:24:00",
+                  "name": "demo2 name"                  
+                }, {
+                  "id": "3",
+                  "mimetype": "png",
+                  "description": "demo3 desc",
+                  "resource_id": "demo3 rsc_id",
+                  "resource_type": "demo3 rsc_type",
+                  "resource_tag": "demo3 rsc_tag",
+                  "update_by": "demo3 updater",
+                  "updated_at": "2016-04-25 17:24:00",
+                  "name": "demo3 name"                  
+                }]
+              }
+            }
+          });
+        </script>
+      </dom-module>
+    </template>
+  </demo-snippet>
+</body>
+</html>
