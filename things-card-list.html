@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 
 <!-- 
-`<things-card-list>` Things Card List Component
+A comment describing this element
 
 Example:
 
@@ -10,7 +10,7 @@ Example:
 			selected="selectedItem">
 		</things-card-list>
 
-@demo demo/demo-things-card-list.html
+@demo demo/demo-card-list.html
 -->
 <dom-module id="things-card-list">
 	<template>
@@ -122,6 +122,7 @@ Example:
 				 */
 				_onCardSelect:function(event){
 					var item = this.$.imageRepeat.itemForElement(event.target);
+					console.log(item);
 					if(item == this.selected) return;
 
 					var index = this.$.imageRepeat.indexForElement(event.target);
