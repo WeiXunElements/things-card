@@ -1,6 +1,6 @@
 {
   "name": "things-card",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "authors": [
     "Hatio Lab. <heartyoh@hatiolab.com>"
   ],
@@ -25,7 +25,7 @@
     "paper-card": "PolymerElements/paper-card#^1.1.1",
     "things-global-behavior": "ThingsElements/things-global-behavior",
     "things-msg-box-behavior": "ThingsElements/things-msg-box-behavior",
-    "things-spinner": "ThingsElements/things-spinner#^latest"
+    "things-spinner": "ThingsElements/things-spinner"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
