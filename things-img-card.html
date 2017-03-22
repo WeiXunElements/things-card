@@ -12,7 +12,9 @@
 <link rel="import" href="../things-spinner/things-spinner-behavior.html">
 <link rel="import" href="../things-msg-box-behavior/things-msg-box-behavior.html">
 
-
+<!--
+@demo demo/demo-things-img-card.html
+ -->
 <dom-module id="things-img-card">
   <template>
     <style>
@@ -53,10 +55,10 @@
 
     </style>
 
-    <paper-card id="things-card" 
-          heading="[[card.name]]" 
-          image="[[image]]" 
-          elevation="[[elevation]]" 
+    <paper-card id="things-card"
+          heading="[[card.name]]"
+          image="[[_image]]"
+          elevation="[[elevation]]"
           animated-shadow="[[animatedShadow]]"
           preload-image ="preloadImage"
           fade-image="fadeImage"
@@ -67,9 +69,9 @@
         </div>
         <div class="card-actions">
           <content select=".card-actions"></content>
-          <paper-icon-button 
-            icon="hardware:keyboard-arrow-up" 
-            title="more info" 
+          <paper-icon-button
+            icon="hardware:keyboard-arrow-up"
+            title="more info"
             on-tap="_toggle"
             style="float:right;">
           </paper-icon-button>
@@ -97,11 +99,11 @@
         properties: {
           /**
            * when card taped fire event on-card-clicked with card information
-           * 
+           *
            * @event on-card-clicked
            */
-          
-          
+
+
           /**
            * image file objects
            * @type {Object}
@@ -111,16 +113,9 @@
             notify:true
           },
           /**
-           * The title of the card.
-           */
-          heading: {
-            type: String,
-            value: ''
-          },
-          /**
            * The url of the title image of the card.
            */
-          image: {
+          _image: {
             type: String,
             computed:'_onCardChange(globals.baseUrl, card.id)'
           },

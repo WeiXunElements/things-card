@@ -15,7 +15,7 @@ subject to an additional IP rights grant found at https://github.com/ThingsEleme
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <title>things-card-list demo</title>
   <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
-  
+
   <link rel="import" href="../../polymer/polymer.html">
   <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
   <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
@@ -35,26 +35,26 @@ subject to an additional IP rights grant found at https://github.com/ThingsEleme
       width: 45%;
       margin-top: 20px;
     }
-    
+
     form > paper-button:not([disabled]) {
       background: var(--paper-light-blue-500);
       color: white;
     }
-    
+
     button {
       margin-top: 20px;
     }
-    
+
     paper-spinner {
       width: 14px;
       height: 14px;
       margin-right: 20px;
     }
-    
+
     paper-dropdown-menu {
       display: block;
     }
-    
+
     demo-snippet {
       --demo-snippet-code: {
         max-height: 300px;
@@ -71,10 +71,11 @@ subject to an additional IP rights grant found at https://github.com/ThingsEleme
 
       <dom-module id="sample-card-list">
         <template>
-          <things-card-list 
+          <span>[[selectedItem.id]]</span>
+          <things-card-list
             items="[[items]]"
-            selected="selectedItem">
-          </things-card-list>            
+            selected="{{selectedItem}}">
+          </things-card-list>
         </template>
 
         <script>
@@ -93,7 +94,7 @@ subject to an additional IP rights grant found at https://github.com/ThingsEleme
                   "resource_tag": "demo1 rsc_tag",
                   "update_by": "demo1 updater",
                   "updated_at": "2016-04-25 17:24:00",
-                  "name": "demo1 name"                  
+                  "name": "demo1 name"
                 }, {
                   "id": "2",
                   "mimetype": "png",
@@ -103,7 +104,7 @@ subject to an additional IP rights grant found at https://github.com/ThingsEleme
                   "resource_tag": "demo2 rsc_tag",
                   "update_by": "demo2 updater",
                   "updated_at": "2016-04-25 17:24:00",
-                  "name": "demo2 name"                  
+                  "name": "demo2 name"
                 }, {
                   "id": "3",
                   "mimetype": "png",
@@ -113,7 +114,7 @@ subject to an additional IP rights grant found at https://github.com/ThingsEleme
                   "resource_tag": "demo3 rsc_tag",
                   "update_by": "demo3 updater",
                   "updated_at": "2016-04-25 17:24:00",
-                  "name": "demo3 name"                  
+                  "name": "demo3 name"
                 }]
               }
             }
