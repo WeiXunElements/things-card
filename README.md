@@ -1,7 +1,21 @@
 # things-card
 
-An element providing a starting point for your own reusable Polymer elements.
+## List 형식으로 여러개의 card를 보여주고 상세정보를 클릭하여 볼수 있다.
 
+Example:
+
+```html
+     <things-card-list
+       items="[[items]]"
+       selected="{{selectedItem}}">
+     </things-card-list>
+     <things-img-card id="things-img-card"
+       card="{{resource}}">
+     </things-img-card>
+```
+
+*****
+</br></br>
 
 ## Dependencies
 
@@ -14,24 +28,17 @@ Then, go ahead and download the element's dependencies:
 
     bower install
 
-
 ## Playing With Your Element
 
 If you wish to work on your element in isolation, we recommend that you use
 [Polyserve](https://github.com/PolymerLabs/polyserve) to keep your element's
 bower dependencies in line. You can install it via:
 
-    npm install -g polyserve
+    npm install -g polymer-cli
 
 And you can run it via:
 
-    polyserve
+    polymer serve
 
 Once running, you can preview your element at
-`http://localhost:8080/components/things-card/`, where `things-card` is the name of the directory containing it.
-
-## Example 1. Things img card
-`<things-img-card>` Things Image Card Component
-
-## Example 2. Things card list
-`<things-card-list>` Things Card List Component
+`http://localhost:8080/components/things-alarm/`, where `things-alarm` is the name of the directory containing it.

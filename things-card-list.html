@@ -1,12 +1,13 @@
 <link rel="import" href="../polymer/polymer.html">
 
-<!-- 
-A comment describing this element
+<!--
+##  things-card
+List 형식으로 여러개의 card를 보여주고 상세정보를 클릭하여 볼수 있다.
 
 Example:
 
-		<things-card-list 
-			items="[[response.items]]" 
+		<things-card-list
+			items="[[response.items]]"
 			selected="selectedItem">
 		</things-card-list>
 
@@ -78,14 +79,14 @@ Example:
 
 		<template is="dom-repeat" id="imageRepeat" items="[[items]]" as="cardItem">
 			<things-img-card id="[[cardItem.id]]"
-							 class="white img-selector" 
-							 card = "{{cardItem}}" 
+							 class="white img-selector"
+							 card = "{{cardItem}}"
 							 selected$="{{cardItem.selected}}">
 				<content class="card-content" select=".card-content"></content>
 				<content class="card-actions" select=".card-actions"></content>
 			</things-img-card>
 		</template>
-		
+
 		<array-selector id="selector" items="{{items}}" selected="{{selected}}"></array-selector>
 
 	</template>
@@ -99,14 +100,16 @@ Example:
 
 				properties: {
 					/**
-					 * items need to list
+					 * Object 타입으로 items 구성
+					 * @type {Objetc}
 					 */
 					items: {
 						type: Object,
 						notify: true
 					},
 					/**
-					 * item selected
+					 * item 선택
+					 * @type {Object}
 					 */
 					selected:{
 						type:Object,
@@ -118,7 +121,8 @@ Example:
 					'on-card-clicked' :'_onCardSelect'
 				},
 				/**
-				 * when card selected show check image on card
+				 * card 가 선택될때 check image 호출
+				 * @param {event} event card event발생시 image 호출
 				 */
 				_onCardSelect:function(event){
 					var item = this.$.imageRepeat.itemForElement(event.target);
@@ -137,4 +141,3 @@ Example:
 		})();
 	</script>
 </dom-module>
-
