@@ -1,6 +1,10 @@
 {
   "name": "things-card",
+<<<<<<< HEAD
   "version": "v2.0.0",
+=======
+  "version": "0.1.5",
+>>>>>>> origin/master
   "authors": [
     "Hatio Lab. <heartyoh@hatiolab.com>"
   ],

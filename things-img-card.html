@@ -16,7 +16,7 @@
 
 
 ##  things-card
-List 형식으로 여러개의 card를 보여주고 상세정보를 클릭하여 볼수 있다.
+### List 형식으로 여러개의 card를 보여주고 상세정보를 클릭하여 볼수 있다.
 
 Example:
 
@@ -110,13 +110,15 @@ Example:
         properties: {
           /**
            * event on-card-clicked 발생시 card 정보 호출
-           *
+           ******
            * @event on-card-clicked
+           * @param {Object} card
            */
 
 
           /**
            * image 파일로 Object구성
+           ******
            * @type {Object}
            */
           card: {
@@ -125,6 +127,7 @@ Example:
           },
           /**
            * image URL
+           ******
            * @type {String}
            */
           _image: {
@@ -133,6 +136,7 @@ Example:
           },
           /**
            * preloadImage 사용여부
+           ******
            * @type {Boolean}
            */
           preloadImage: {
@@ -141,6 +145,7 @@ Example:
           },
           /**
            * preloadImage 사용시 fadeImage 설정필요
+           ******
            * @type {Boolean}
            */
           fadeImage: {
@@ -149,6 +154,7 @@ Example:
           },
           /**
            * card 높이설정 범위: 0-5.
+           ******
            * @type {Number}
            */
           elevation: {
@@ -158,6 +164,7 @@ Example:
           },
           /**
            * card 크기변경시 animated사용여부
+           ******
            * @type {Boolean}
            */
           animatedShadow: {
