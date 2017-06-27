@@ -1,6 +1,6 @@
 # things-card
 
-## List 형식으로 여러개의 card를 보여주고 상세정보를 클릭하여 보여주는 컴포넌트
+## It is a component that shows multiple cards in a List format and the detailed information after click.
 
 Example:
 
@@ -21,8 +21,7 @@ Example:
 
 ## Dependencies
 
-Element dependencies are managed via [Bower](http://bower.io/). You can
-install that via:
+Element dependencies are managed via [Bower](http://bower.io/). You can install that via:
 
     npm install -g bower
 
