@@ -42,4 +42,4 @@ And you can run it via:
     polymer serve
 
 Once running, you can preview your element at
-`http://localhost:8080/components/things-alarm/`, where `things-alarm` is the name of the directory containing it.
+`http://localhost:8080/components/things-card/`, where `things-card` is the name of the directory containing it.
