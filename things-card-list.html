@@ -1,8 +1,8 @@
 <!--
 @license
-Copyright © HatioLab Inc. All rights reserved.
+Copyright © 2015-2021 Shenzhen Weixun All rights reserved.
 -->
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html" />
 
 <!--
 ##  things-card
@@ -18,133 +18,134 @@ Example:
 @demo demo/index.html
 -->
 <dom-module id="things-card-list">
-	<template>
-		<style>
-		:host {
-			display: block;
-			background-color:rgba(0,0,0,.05);
-		},
+  <template>
+    <style>
+      :host {
+        display: block;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
 
-		.img-selector[selected],
-		.img-selector[selected]:hover {
-		  border-color: var(--selected-color);
-		}
-		.img-selector:before {
-		  content: '';
-		  display: block;
+      ,
+      .img-selector[selected],
+      .img-selector[selected]:hover {
+        border-color: var(--selected-color);
+      }
+      .img-selector:before {
+        content: '';
+        display: block;
 
-		  position: absolute;
-		  z-index: 1;
-		  bottom: 0;
-		  right: 0;
-		  width: 0;
-		  height: 0;
-		  border-style: solid;
-		  border-width: 0;
-		  border-color: transparent transparent var(--selected-color) transparent;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0;
+        border-color: transparent transparent var(--selected-color) transparent;
 
-		  -webkit-transition: all 0.2s ease-in-out;
-		  -moz-transition: all 0.2s ease-in-out;
-		  -o-transition: all 0.2s ease-in-out;
-		  transition: all 0.2s ease-in-out;
-		}
-		.img-selector[selected]:before {
-		  border-left-width: 25px;
-		  border-bottom-width: 25px;
-		}
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+      }
+      .img-selector[selected]:before {
+        border-left-width: 25px;
+        border-bottom-width: 25px;
+      }
 
-		.img-selector:after {
-		  content: "";
-		  background-color: transparent;
-		  position: absolute;
-		  z-index:2;
-		  right: 4px;
-		  bottom: 4px;
-		  width: 0;
-		  height: 0;
-		  border-bottom: 0 solid #fff;
-		  border-right: 0 solid #fff;
-		  transform: rotate(45deg);
-		  -o-transform: rotate(45deg);
-		  -ms-transform: rotate(45deg);
-		  -webkit-transform: rotate(45deg);
-		  -webkit-transition: all 0.2s ease-in-out;
-		  -moz-transition: all 0.2s ease-in-out;
-		  -o-transition: all 0.2s ease-in-out;
-		  transition: all 0.2s ease-in-out;
-		}
+      .img-selector:after {
+        content: '';
+        background-color: transparent;
+        position: absolute;
+        z-index: 2;
+        right: 4px;
+        bottom: 4px;
+        width: 0;
+        height: 0;
+        border-bottom: 0 solid #fff;
+        border-right: 0 solid #fff;
+        transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+      }
 
-		.img-selector[selected]:after {
-		  border-width: 3px;
-		  width: 3px;
-		  height: 7px;
-		}
-		</style>
+      .img-selector[selected]:after {
+        border-width: 3px;
+        width: 3px;
+        height: 7px;
+      }
+    </style>
 
-		<template is="dom-repeat" id="imageRepeat" items="[[items]]" as="cardItem">
-			<things-img-card id="[[cardItem.id]]"
-							 class="white img-selector"
-							 card = "{{cardItem}}"
-							 selected$="{{cardItem.selected}}">
-				<content class="card-content" select=".card-content"></content>
-				<content class="card-actions" select=".card-actions"></content>
-			</things-img-card>
-		</template>
+    <template is="dom-repeat" id="imageRepeat" items="[[items]]" as="cardItem">
+      <things-img-card
+        id="[[cardItem.id]]"
+        class="white img-selector"
+        card="{{cardItem}}"
+        selected$="{{cardItem.selected}}"
+      >
+        <content class="card-content" select=".card-content"></content>
+        <content class="card-actions" select=".card-actions"></content>
+      </things-img-card>
+    </template>
 
-		<array-selector id="selector" items="{{items}}" selected="{{selected}}"></array-selector>
+    <array-selector id="selector" items="{{items}}" selected="{{selected}}"></array-selector>
+  </template>
 
-	</template>
+  <script>
+    (function () {
+      'use strict';
 
-	<script>
-		(function() {
-			'use strict';
+      Polymer({
+        is: 'things-card-list',
 
-			Polymer({
-				is: 'things-card-list',
+        properties: {
+          /**
+           * Object 타입으로 items 구성
+           ******
+           * @type {Objetc}
+           */
+          items: {
+            type: Object,
+            notify: true,
+          },
+          /**
+           * item 선택
+           ******
+           * @type {Object}
+           */
+          selected: {
+            type: Object,
+            notify: true,
+          },
+        },
+        listeners: {
+          'on-card-clicked': '_onCardSelect',
+        },
+        /**
+         * card 가 선택될때 check image 호출
+         ******
+         * @param {event} event card event발생시 image 호출
+         */
+        _onCardSelect: function (event) {
+          var item = this.$.imageRepeat.itemForElement(event.target);
+          console.log(item);
+          if (item == this.selected) return;
 
-				properties: {
-					/**
-					 * Object 타입으로 items 구성
-					 ******
-					 * @type {Objetc}
-					 */
-					items: {
-						type: Object,
-						notify: true
-					},
-					/**
-					 * item 선택
-					 ******
-					 * @type {Object}
-					 */
-					selected:{
-						type:Object,
-						notify:true
-					}
+          var index = this.$.imageRepeat.indexForElement(event.target);
 
-				},
-				listeners : {
-					'on-card-clicked' :'_onCardSelect'
-				},
-				/**
-				 * card 가 선택될때 check image 호출
-				 ******
-				 * @param {event} event card event발생시 image 호출
-				 */
-				_onCardSelect:function(event){
-					var item = this.$.imageRepeat.itemForElement(event.target);
-					console.log(item);
-					if(item == this.selected) return;
+          this.set('items.' + this.indexSelectedOld + '.selected', false);
+          this.set('items.' + index + '.selected', true);
 
-					var index = this.$.imageRepeat.indexForElement(event.target);
-
-					this.set('items.'+this.indexSelectedOld+'.selected', false);
-					this.set('items.'+index+'.selected', true);
-
-					this.$.selector.select(item);
-					this.indexSelectedOld = index;
-				}
-			});
-		})();
-	</script>
+          this.$.selector.select(item);
+          this.indexSelectedOld = index;
+        },
+      });
+    })();
+  </script>
 </dom-module>
